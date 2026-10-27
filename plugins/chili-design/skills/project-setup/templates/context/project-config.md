@@ -25,7 +25,7 @@ output:
   page_name: AI-концепты
   section_naming: "<KEY> — <short title> — <YYYY-MM-DD>"
   protect_existing: true
-never_invent: [<fill>]
+never_invent: [<fill>]   # [] = nothing permanent, decided per task
 work_types:
   - id: feature-update
     label: Доработка флоу / экрана

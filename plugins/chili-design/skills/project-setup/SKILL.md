@@ -1,7 +1,7 @@
 ---
-name: project-setup
-description: Set up a client design project for the Chili design workflows. Use when the designer writes «настроить проект», «setup project» or /project-setup, or when new-task reports that the project is not configured. Interviews the designer, verifies Jira/Figma connectors, and writes CLAUDE.md, context/*.md and context/project-config.md.
 argument-hint: "[optional: project name]"
+description: Set up a client design project for the Chili design workflows. Use when the designer writes «настроить проект», «setup project» or /project-setup, or when new-task reports that the project is not configured. Interviews the designer, verifies Jira/Figma connectors, and writes CLAUDE.md, context/*.md and context/project-config.md.
+name: project-setup
 ---
 
 # Project setup
@@ -13,8 +13,11 @@ Output: a configured project folder that `new-task` and the workflow skills read
 2. Jira/Atlassian: `getAccessibleAtlassianResources` → site URL, cloudId, access level (read-only vs write).
 3. Record which connectors work. If one fails, say so and continue with what's available.
 
-## Step 2 — Interview, round 1 (AskUserQuestion)
-- Which product/client? Offer the Figma teams found in Step 1 as options.
+## Step 2 — Interview, round 1
+AskUserQuestion shows at most 4 options per question, so never list teams, files or projects as options when there can be more than 4.
+1. Ask in a plain message (free text): «Как называется проект или клиент? Если знаете — пришлите ссылку на Figma-файл или Jira-проект».
+2. Search for it: `listJiraProjects` with that name; Figma links from the answer or from Jira issues. Show what was found as a short list and ask the designer to confirm or correct (free text).
+3. Then one AskUserQuestion call:
 - Platforms (iOS + Android / + Web / single platform).
 - Default mode: `analyze` / `build` / ask per task.
 - Where to write: this folder (recommended) or a copy in a subfolder.
@@ -28,7 +31,7 @@ Output: a configured project folder that `new-task` and the workflow skills read
 - Output page name for AI-generated screens (default «AI-концепты») and whether to protect existing screens (default yes).
 - User roles.
 - UI languages and where final copy comes from.
-- What must never be invented (auth/permissions, payments/subscription, legal/regulated copy, business rules…).
+- «Что никогда нельзя придумывать?» — multiSelect. Options: up to 3 categories that fit this product's domain (derived from Step 3, e.g. auth/permissions, payments, legal texts, calculation rules) **plus always, as the last option: `Нет постоянных — зависит от задачи`**. If only that is chosen, write `never_invent: []`; the general rule still applies — business rules not confirmed by the task are marked as open questions.
 - Which work types to enable (default: feature-update, flow-builder, ui-variations, design-qa; optional: motion, store-assets).
 
 ## Step 5 — Write files (in the project folder)

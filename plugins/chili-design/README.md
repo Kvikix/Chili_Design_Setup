@@ -8,10 +8,12 @@ Claude plugin **chili-design** for Chili Labs designers working on existing apps
 |---|---|---|
 | `project-setup` | «настроить проект» | Interviews you, checks Jira/Figma, creates `CLAUDE.md` + `context/` in the project folder |
 | `new-task` | «новая задача» / «new task» | Menu: work type, product, platforms, mode → Jira → Figma → runs the right workflow |
-| `feature-update` | via menu | Change an existing screen, component or part of a flow |
+| `feature-update` | via menu | Change an existing screen, component or part of a flow; 1 variant by default, more on request |
 | `flow-builder` | via menu | New or substantially reworked flow |
-| `ui-variations` | via menu | 2–3 concepts for a new feature |
+| `ui-variations` | via menu | Concepts for a new feature; you choose how many (default 3, up to 5) |
 | `design-qa` | via menu | Check finished screens against the task |
+
+Every design decision and QA finding ends with a short source: (NN/g), (WCAG 2.5.8), (закон Фиттса).
 
 Rules for every workflow: new screens only on the **«AI-концепты»** page (one section per task), existing screens are never edited unless you ask.
 
@@ -49,4 +51,7 @@ plugins/chili-design/
   .claude-plugin/plugin.json           name + version
   skills/<skill>/SKILL.md              6 skills
   skills/project-setup/templates/      CLAUDE.md, SETUP_CHECKLIST.md, context/*.md for new projects
+  references/ux-principles.md          UX/UI best practices used by the design and QA skills
+  references/wcag-2.2.md               WCAG 2.2 AA checklist for designers
+  references/nngroup.md                Nielsen Norman Group key guidance (summary)
 ```

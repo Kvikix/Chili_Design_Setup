@@ -23,6 +23,12 @@ Build questions only from the config; skip a question when the config has a sing
 3. **«Платформы?»** (header `Платформы`) — from `platform_options`. Skip if one option.
 4. **«С чего начать?»** (header `Режим`) — `Сначала анализ (Recommended)` → analyze; `Сразу рисовать` → build. If `default_mode` is `analyze` or `build`, skip and use it.
 
+### Step 1c — Number of variants (only for `feature-update` and `ui-variations`)
+Skip if the designer already gave a number. Otherwise one AskUserQuestion, header `Варианты`, «Сколько вариантов дизайна экрана сделать?»:
+- feature-update: `1 (Recommended)` — одно решение по задаче · `2` · `3` (custom number via free text)
+- ui-variations: `2` · `3 (Recommended)` · `4` (custom number via free text)
+Allowed range 1–5; if more is requested, confirm it's intended (each variant costs time and tokens). Pass it to the skill as `variants=N`.
+
 ## Step 2 — Task source
 Ask in plain text: «Пришлите ссылку на задачу (или ключ) или опишите задачу текстом».
 - Tracker link/key matching `task_tracker.key_patterns` → read it via the connector (description + latest comments). Confirm title + 1–2 lines.
@@ -43,6 +49,7 @@ Send and wait for «ок» or corrections:
 Продукт / платформы: <…>
 Исходные экраны: <Figma link(s)>
 Куда рисую: страница «<output.page_name>» → секция «<section name>»
+Варианты: N (feature-update, ui-variations)
 Режим: analyze | build
 Открытые вопросы: <if any>
 ```
