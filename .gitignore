@@ -1,0 +1,4 @@
+# Never publish client project folders here — keep them outside this repository
+
+# macOS
+.DS_Store
