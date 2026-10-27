@@ -12,8 +12,13 @@ Claude plugin **chili-design** for Chili Labs designers working on existing apps
 | `flow-builder` | via menu | New or substantially reworked flow |
 | `ui-variations` | via menu | Concepts for a new feature; you choose how many (default 3, up to 5) |
 | `design-qa` | via menu | Check finished screens against the task |
+| `wireframe` | menu → «Вайрфрейм в чате» | Low-fi wireframes in the chat; «перенеси в Figma» hands off to the design skill |
+| `pattern-research` | menu → Mobbin / «Исследование и направления» | Mobbin research: examples, patterns, directions |
+| `ui-craft` | menu → «Новый визуал», «ДС + улучшения», «Создание UI-основы» | Strong visual UI from chosen references; UI foundation for new products |
 
 Every design decision and QA finding ends with a short source: (NN/g), (WCAG 2.5.8), (закон Фиттса).
+
+Menu: task type → product → platforms → **how we work** (analysis / wireframe in chat / Figma) → **UI approach** (strict design system / + improvements / new visual) → **references** (mine / Mobbin / ui-craft taste, several allowed) → number of variants. Project type (existing or from scratch) is set once in «настроить проект» and changes the menu defaults.
 
 Rules for every workflow: new screens only on the **«AI-концепты»** page (one section per task), existing screens are never edited unless you ask.
 
@@ -54,4 +59,5 @@ plugins/chili-design/
   references/ux-principles.md          UX/UI best practices used by the design and QA skills
   references/wcag-2.2.md               WCAG 2.2 AA checklist for designers
   references/nngroup.md                Nielsen Norman Group key guidance (summary)
+  references/ui-taste.md               UI craft taste guide (built-in reference base)
 ```

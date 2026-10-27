@@ -18,11 +18,13 @@ AskUserQuestion shows at most 4 options per question, so never list teams, files
 1. Ask in a plain message (free text): «Как называется проект или клиент? Если знаете — пришлите ссылку на Figma-файл или Jira-проект».
 2. Search for it: `listJiraProjects` with that name; Figma links from the answer or from Jira issues. Show what was found as a short list and ask the designer to confirm or correct (free text).
 3. Then one AskUserQuestion call:
+- «Это существующий продукт или проект с нуля?» (header `Тип проекта`) — `Существующий продукт` → `project_type: existing` · `Проект с нуля` → `project_type: greenfield`. For greenfield also ask (same call or next) whether a design system already exists → `design_system_ready`.
 - Platforms (iOS + Android / + Web / single platform).
 - Default mode: `analyze` / `build` / ask per task.
 - Where to write: this folder (recommended) or a copy in a subfolder.
 
 ## Step 3 — Pull real data
+For `greenfield` there may be little to pull (no approved screens, maybe no library): record what exists (brand assets, early Figma files, Jira epics) and don't force the existing-product fields — leave `figma_pages_of_truth: []`, `design_system: []` if none.
 1. Jira: `listJiraProjects` with the product name → project keys. Read 2–3 recent issues (prefer designer task types) to learn the task format, issue types, statuses, reporters and Figma links.
 2. Figma: from those links get file keys → `create_session`, `get_metadata` (page list), `get_libraries` (subscribed libraries).
 3. Design system: `search_design_system` restricted to the project libraries (variables, a few key components) → token naming, component naming, themes. If several products/files appear (e.g. separate app for another role), treat them as separate `products`.
@@ -32,7 +34,8 @@ AskUserQuestion shows at most 4 options per question, so never list teams, files
 - User roles.
 - UI languages and where final copy comes from.
 - «Что никогда нельзя придумывать?» — multiSelect. Options: up to 3 categories that fit this product's domain (derived from Step 3, e.g. auth/permissions, payments, legal texts, calculation rules) **plus always, as the last option: `Нет постоянных — зависит от задачи`**. If only that is chosen, write `never_invent: []`; the general rule still applies — business rules not confirmed by the task are marked as open questions.
-- Which work types to enable (default: feature-update, flow-builder, ui-variations, design-qa; optional: motion, store-assets).
+- Which work types to enable. Defaults by `project_type`: existing → feature-update, flow-builder, ui-variations, design-qa; greenfield → research-directions, ui-variations, ui-foundation, flow-builder, design-qa. Optional: motion, store-assets. Keep `project_types` on each item as in the template.
+- Default UI approach (`default_ui_approach`): keep `auto` unless the designer wants a fixed one.
 
 ## Step 5 — Write files (in the project folder)
 First copy the templates from the `templates/` folder next to this SKILL.md into the project folder (`CLAUDE.md`, `SETUP_CHECKLIST.md`, `context/*.md`) — never overwrite files that already exist there; if they exist, update them in place. Then fill:
