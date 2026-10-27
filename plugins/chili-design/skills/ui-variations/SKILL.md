@@ -2,7 +2,6 @@
 name: ui-variations
 description: Explore 2–3 client-facing design alternatives for a specific feature within an existing mobile app. Choose when asked for concepts/options, not a direct Jira implementation.
 argument-hint: "[feature or Jira URL] [Figma source URL (optional — output goes to «AI-концепты»)] [number of variants]"
-disable-model-invocation: true
 ---
 
 # UI variations

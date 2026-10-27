@@ -2,7 +2,6 @@
 name: design-qa
 description: Review updated Figma screens against a Jira issue and approved design system; report defects and gaps without editing. Use before designer approval or development handoff.
 argument-hint: "[Jira URL] [Figma frame or draft page URL]"
-disable-model-invocation: true
 ---
 
 # Design QA

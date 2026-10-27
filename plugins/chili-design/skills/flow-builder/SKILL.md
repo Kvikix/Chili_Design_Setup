@@ -2,7 +2,6 @@
 name: flow-builder
 description: Build or revise multi-screen user flows for an existing mobile app from Jira and current approved patterns. Use when navigation, steps, branching or several connected screens change.
 argument-hint: "[Jira URL] [Figma source URL (optional — output goes to «AI-концепты»)] [mode=analyze|build]"
-disable-model-invocation: true
 ---
 
 # Flow builder

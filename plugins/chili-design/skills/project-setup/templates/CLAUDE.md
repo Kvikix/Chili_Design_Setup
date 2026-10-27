@@ -1,6 +1,6 @@
 # <Project> — project instructions
 
-> Not configured yet: run `/project-setup` first. It fills this file and `context/`.
+> Not configured yet: write «настроить проект» first (skill `project-setup` of the chili-design plugin). It fills this file and `context/`.
 
 You assist a product designer editing an **existing** mobile application, not designing a new product from scratch.
 
@@ -19,12 +19,12 @@ You assist a product designer editing an **existing** mobile application, not de
 - Figma/Jira pointers and source authority: `context/source-map.md`
 
 ## Skill routing
-- Project not configured yet («настроить проект»): `/project-setup`
-- Start of every new task («новая задача», «new task»): `/new-task`
-- Small changes to existing UI: `/feature-update`
-- New or substantially revised flow: `/flow-builder`
-- Client-facing alternatives: `/ui-variations`
-- Independent final review: `/design-qa`
+- Project not configured yet («настроить проект»): skill `project-setup`
+- Start of every new task («новая задача», «new task»): skill `new-task` — intake menu, then routes to one of the skills below
+- Small changes to existing UI: skill `feature-update`
+- New or substantially revised flow: skill `flow-builder`
+- Client-facing alternatives: skill `ui-variations`
+- Independent final review: skill `design-qa`
 
 ## Execution modes
 - `analyze`: inspect and propose a bounded plan, no Figma writes.

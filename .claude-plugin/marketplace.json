@@ -1,0 +1,11 @@
+{
+  "name": "chili-design-setup",
+  "owner": { "name": "Chili Labs" },
+  "plugins": [
+    {
+      "name": "chili-design",
+      "source": "./plugins/chili-design",
+      "description": "Chili Labs design workflows: project setup, new-task menu, feature update, flow builder, UI variations, design QA."
+    }
+  ]
+}

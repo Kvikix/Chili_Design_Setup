@@ -2,7 +2,6 @@
 name: feature-update
 description: Update existing mobile UI from a Jira issue using approved Figma designs and project components. Choose for small feature, screen, form, label, validation-display or component changes, not a wholly new flow.
 argument-hint: "[Jira URL] [Figma source URL (optional — output goes to «AI-концепты»)] [mode=analyze|build]"
-disable-model-invocation: true
 ---
 
 # Feature update

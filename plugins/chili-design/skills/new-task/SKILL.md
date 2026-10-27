@@ -9,7 +9,7 @@ argument-hint: "[optional: Jira URL or short description]"
 Everything project-specific comes from **`context/project-config.md`**. This skill contains no project names, links or rules of its own.
 
 ## Step 0 — Load the project config
-- Read `context/project-config.md` (the YAML block). If it is missing or still has `<fill>` values in `products`, stop and say: «Проект ещё не настроен — запустите /project-setup». Do not guess.
+- Project folder = the connected folder (or working directory) that contains `context/project-config.md`; if several do, ask which project. Read its YAML block and the project's `CLAUDE.md`. If it is missing or still has `<fill>` values in `products`, stop and say: «Проект ещё не настроен — напишите «настроить проект»» (skill `project-setup`). Do not guess.
 - Ask questions in `language.chat` from the config (default: Russian).
 - If the designer's first message or `$ARGUMENTS` already answers something (Jira link, Figma link, work type), skip that question.
 
@@ -46,7 +46,7 @@ Send and wait for «ок» or corrections:
 Режим: analyze | build
 Открытые вопросы: <if any>
 ```
-Then follow `.claude/skills/<skill>/SKILL.md` for the chosen work type. If the work type has `skill: none`, work from `CLAUDE.md` rules and ask the extra questions listed in its `asks` field.
+Then invoke the chosen work type's skill from this plugin (`feature-update`, `flow-builder`, `ui-variations`, `design-qa`) and pass it the collected context; it reads the project's `context/*.md` as needed. If the work type has `skill: none`, work from `CLAUDE.md` rules and ask the extra questions listed in its `asks` field.
 
 ## Output rules (all workflows)
 - New screens only on the page `output.page_name` of the selected product's Figma file; create the page if missing and tell the designer.

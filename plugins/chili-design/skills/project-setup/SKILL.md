@@ -1,12 +1,12 @@
 ---
 name: project-setup
-description: Set up this starter for a specific client project. Use when the designer writes «настроить проект», «setup project» or /project-setup, or when /new-task reports that the project is not configured. Interviews the designer, verifies Jira/Figma connectors, and writes CLAUDE.md, context/*.md and context/project-config.md.
+description: Set up a client design project for the Chili design workflows. Use when the designer writes «настроить проект», «setup project» or /project-setup, or when new-task reports that the project is not configured. Interviews the designer, verifies Jira/Figma connectors, and writes CLAUDE.md, context/*.md and context/project-config.md.
 argument-hint: "[optional: project name]"
 ---
 
 # Project setup
 
-Output: a configured project folder that `/new-task` and the workflow skills read. Never invent facts; leave `<fill>` and list open questions for anything unverified. Never ask for or store secrets, tokens, passwords or personal customer data.
+Output: a configured project folder that `new-task` and the workflow skills read. The project folder is the folder the designer connected or opened for this project (it may be empty). Never invent facts; leave `<fill>` and list open questions for anything unverified. Never ask for or store secrets, tokens, passwords or personal customer data.
 
 ## Step 1 — Discover what's reachable (before asking)
 1. Figma: `whoami` → list the designer's teams/plans and seat types.
@@ -32,6 +32,7 @@ Output: a configured project folder that `/new-task` and the workflow skills rea
 - Which work types to enable (default: feature-update, flow-builder, ui-variations, design-qa; optional: motion, store-assets).
 
 ## Step 5 — Write files (in the project folder)
+First copy the templates from the `templates/` folder next to this SKILL.md into the project folder (`CLAUDE.md`, `SETUP_CHECKLIST.md`, `context/*.md`) — never overwrite files that already exist there; if they exist, update them in place. Then fill:
 - `context/project-config.md` — fill the YAML in place (keys unchanged).
 - `context/project-context.md` — product, roles, JTBD (mark *derived* vs *confirmed*), flow table with Figma pages and task references, constraints, open questions.
 - `context/design-system.md` — libraries, token and component naming, key components, constraints, open questions.
@@ -41,4 +42,4 @@ Output: a configured project folder that `/new-task` and the workflow skills rea
 Show a short summary of what was filled and the open questions. Never claim connectors or Figma were checked if they were not.
 
 ## Step 6 — Smoke test
-Offer: «Запустить /new-task на реальной задаче в режиме analyze?»
+Offer: «Запустить «новая задача» на реальной задаче в режиме analyze?»
