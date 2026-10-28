@@ -9,7 +9,7 @@ argument-hint: "[optional: Jira URL or short description]"
 Everything project-specific comes from **`context/project-config.md`**. This skill contains no project names, links or rules of its own.
 
 ## Step 0 — Load the project config
-- Project folder = the connected folder (or working directory) that contains `context/project-config.md`; if several do, ask which project. Read its YAML block and the project's `CLAUDE.md`. If it is missing or still has `<fill>` values in `products`, stop and say: «Проект ещё не настроен — напишите «настроить проект»» (skill `project-setup`). Do not guess.
+- Project folder = the connected folder (or working directory) that contains `context/project-config.md`; if several do, ask which project. Read its YAML block and the project's `CLAUDE.md`. If the folder has no `context/` but a Claude Project is attached, read `context/project-config.md` from the project (`project_read`). Read only the config and `CLAUDE.md` here; other `context/*.md` are read later by the workflow skill, only the sections it needs. If the config is missing or still has `<fill>` values in `products`, stop and say: «Проект ещё не настроен — напишите «настроить проект»» (skill `project-setup`). Do not guess.
 - `project_type` missing → treat as `existing`. `design_system_ready` missing → `true`. `work_types[].project_types` missing → item applies to every type.
 - Ask questions in `language.chat` (default Russian). If the designer's first message or `$ARGUMENTS` already answers something (Jira link, Figma link, work type, mode, number of variants), skip that question.
 - AskUserQuestion allows max 4 questions per call and 2–4 options per question (free text is always available). Skip any question whose answer is fixed by the config.
@@ -29,7 +29,7 @@ Skip the whole block for `design-qa`, `motion`, `store-assets`.
 
 5. **«Как работаем с UI?»** (header `UI`) — skip if `default_ui_approach` ≠ `auto`:
    - `Строго по дизайн-системе` → `ui=system`: только существующие компоненты и токены. Hide this option if `design_system_ready: false`.
-   - `Дизайн-система + улучшения` → `ui=extend`: основа своя, новые компоненты и улучшения — с пометкой «Предложение».
+   - `Дизайн-система + улучшения` → `ui=extend`: основа своя, новые компоненты и улучшения — с пометкой `Proposal` в Figma.
    - `Новый визуал` → `ui=free`: свободный креатив, UX-принципы и WCAG остаются обязательными.
    Mark as `(Recommended)`: `system` for existing projects with `feature-update` / `flow-builder`; `extend` for existing `ui-variations`; `free` for greenfield (or `extend` once `design_system_ready: true`).
 6. **«Откуда берём референсы?»** (header `Референсы`, **multiSelect**) — only if `ui` ≠ `system`, or always for greenfield:
@@ -46,6 +46,7 @@ If `Мои референсы` was chosen, ask right away: «Пришлите с
 
 ## Step 2 — Task source
 Ask in plain text: «Пришлите ссылку на задачу (или ключ) или опишите задачу текстом».
+- `task_tracker.type: none` → ask only for a text description.
 - Tracker link/key matching `task_tracker.key_patterns` → read it via the connector (description + latest comments). Confirm title + 1–2 lines.
 - Plain text → use as-is; never claim the tracker was checked. Connector unavailable → say so, ask for the text.
 - Extract Figma links from the task.
@@ -79,8 +80,10 @@ Then run, in this order:
 3. Always pass: `ui=<system|extend|free>`, `refs=<summary from step 1>`, `variants=N`, product, platforms, Figma sources. Work types with `skill: none` → work from `CLAUDE.md` and ask the extra questions in `asks`.
 
 ## Output rules (all workflows)
-- New screens only on the page `output.page_name` of the selected product's Figma file; create the page if missing and tell the designer. One Section per task, named by `output.section_naming`.
+- New screens only on the page `output.page_name` (default «Playground AI») of the selected product's Figma file; create the page if missing and tell the designer. One Section per task, named by `output.section_naming` (English).
+- Language in Figma: copy inside mockups in the project UI language (`language.ui`); page, section, frame and layer names, annotations and labels (`Variant A`, `Proposal`) always in English. Never write Russian in Figma unless it is a UI language of the project.
 - If `output.protect_existing: true` — never edit, move or delete existing screens; duplicate into the task Section and edit the copy. Edit originals only on explicit request in this chat.
-- `ui=system` → only the product's `design_system` libraries. `ui=extend` → library first; every new component/style is labelled «Предложение». `ui=free` → new visual allowed. In all cases respect `themes`, UX principles and WCAG 2.2 AA.
+- `ui=system` → only the product's `design_system` libraries. `ui=extend` → library first; every new component/style is labelled `Proposal`. `ui=free` → new visual allowed. In all cases respect `themes`, UX principles and WCAG 2.2 AA.
 - Never invent anything listed in `never_invent`, and never invent business rules in any mode — take them from the task or list as open questions.
 - Report Figma links only after the tool confirms the write.
+- Project context: when the designer confirms new project facts (flow, rule, component, link) or says «обнови контекст», update the relevant `context/*.md` in the folder and in the attached Claude Project (`project_write`); show the change in 1–3 lines first. No per-task logs.

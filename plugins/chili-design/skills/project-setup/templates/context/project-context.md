@@ -1,5 +1,12 @@
 # Project context
 
+Keep it compact: short bullets, links instead of long text. Saved in the project folder and in the Claude Project.
+
+## About the project
+- Domain: [fill]
+- Description (source: Confluence link / designer's text): [fill]
+- Docs: [links]
+
 ## Product
 - Name: [fill]
 - Description / value proposition: [fill]

@@ -1,7 +1,7 @@
 {
   "name": "chili-design",
-  "version": "0.7.0",
-  "description": "Chili Labs design workflows for existing apps: project setup, new-task intake menu, feature updates, flows, UI variations and design QA in Figma with Jira context.",
+  "version": "0.8.0",
+  "description": "Chili Labs design workflows for existing products and new projects: project setup, new-task intake menu, feature updates, flows, UI variations and design QA in Figma with Jira context.",
   "author": { "name": "Chili Labs" },
   "repository": "https://github.com/Kvikix/Chili_Design_Setup",
   "keywords": ["design", "figma", "jira", "ux"]

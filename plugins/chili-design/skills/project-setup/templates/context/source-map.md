@@ -6,7 +6,7 @@
 | Product Figma file | [link] | Approved current UI | [read/write/none] |
 | Draft Figma page | [link] | Allowed working area | [read/write/none] |
 | Design system Figma library | [link] | Tokens/components | [read/write/none] |
-| Product docs | [link] | Confirmed product behavior | [read/write/none] |
+| Confluence / product docs | [link] | Confirmed product behavior | [read/write/none] |
 | Mobbin | [link or connected tool] | Optional inspiration, NEVER business truth | [read/none] |
 
 ## Source conflict precedence

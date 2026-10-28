@@ -20,7 +20,7 @@ Every design decision and QA finding ends with a short source: (NN/g), (WCAG 2.5
 
 Menu: task type → product → platforms → **how we work** (analysis / wireframe in chat / Figma) → **UI approach** (strict design system / + improvements / new visual) → **references** (mine / Mobbin / ui-craft taste, several allowed) → number of variants. Project type (existing or from scratch) is set once in «настроить проект» and changes the menu defaults.
 
-Rules for every workflow: new screens only on the **«AI-концепты»** page (one section per task), existing screens are never edited unless you ask.
+Rules for every workflow: new screens only on the **«Playground AI»** page (one section per task), existing screens are never edited unless you ask. UI copy in the project language; names, annotations and labels in Figma in English.
 
 ## Install (once per designer)
 

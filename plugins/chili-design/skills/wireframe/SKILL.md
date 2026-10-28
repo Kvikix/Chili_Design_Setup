@@ -18,10 +18,11 @@ Goal: agree on structure and flow cheaply before any Figma work. **Never write t
 ## Style rules
 - Low fidelity: greyscale, boxes and lines, no brand colours, no real images (box with ✕ or a short label), one system font.
 - Real frame sizes: mobile 375×812, web 1440×900 (scaled down), per selected platforms.
-- Real content in the UI language from the task (no lorem ipsum); placeholders only for unknown copy, marked `[текст?]`.
+- Real content in the UI language from the task (no lorem ipsum); placeholders only for unknown copy, marked `[copy?]`.
+- Labels and annotations on the canvas in English; legend explanations in the chat language.
 - Annotate with numbered callouts; below the canvas a short legend: ① what / why (short source in parentheses, e.g. (NN/g), (WCAG 2.5.8)).
 - Show key states when relevant to the task: empty, error, loading — as small extra frames.
-- `variants` > 1 → label «Вариант A / B / C», same scale, side by side; each with one line on the difference.
+- `variants` > 1 → label `Variant A / B / C`, same scale, side by side; each with one line on the difference.
 
 ## UX basis
 Apply `../../references/ux-principles.md` (structure, hierarchy, navigation, forms, states) and `../../references/nngroup.md`. In existing projects respect the structure of approved screens unless the task changes it. Don't invent business rules — mark unknowns as questions on the canvas.

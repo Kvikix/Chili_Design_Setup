@@ -4,13 +4,16 @@ Read by `new-task` and the workflow skills. Filled by `project-setup`. Keep the 
 
 ```yaml
 project: <fill>
+domain: <fill>               # product area: fintech, education, e-commerce…
+docs: []                      # Confluence / other links describing the project
 project_type: existing        # existing = live product with approved screens | greenfield = new product from scratch
 design_system_ready: true     # false for greenfield until a design system exists → «Строго по дизайн-системе» is hidden
 language:
   chat: ru            # language of questions to the designer
-  ui: [<fill>]        # UI languages, e.g. [lv]
+  ui: [<fill>]        # UI languages, e.g. [lv] — copy inside mockups uses the first one
+  design: en          # page, section, frame and layer names, annotations, labels in Figma — always English
 task_tracker:
-  type: jira
+  type: jira          # jira | none (new project without a tracker — tasks come as text)
   site: <fill>        # e.g. company.atlassian.net
   key_patterns: [<fill>]   # e.g. ["EK-\\d+", "EKW-\\d+"]
 products:
@@ -25,8 +28,8 @@ themes: [light]
 default_mode: ask              # ask | analyze | wireframe | build
 default_ui_approach: auto      # auto (system for existing, free for greenfield) | system | extend | free
 output:
-  page_name: AI-концепты
-  section_naming: "<KEY> — <short title> — <YYYY-MM-DD>"
+  page_name: Playground AI
+  section_naming: "<KEY> — <short title> — <YYYY-MM-DD>"   # English; no key → "<short title> — <YYYY-MM-DD>"
   protect_existing: true
 never_invent: [<fill>]   # [] = nothing permanent, decided per task
 work_types:              # project_types: which project types show this item in the menu
