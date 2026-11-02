@@ -2,3 +2,6 @@
 
 # macOS
 .DS_Store
+
+# Packaged plugin (share separately, not in git)
+*.plugin

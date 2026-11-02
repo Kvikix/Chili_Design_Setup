@@ -31,6 +31,9 @@ output:
   page_name: Playground AI
   section_naming: "<KEY> — <short title> — <YYYY-MM-DD>"   # English; no key → "<short title> — <YYYY-MM-DD>"
   protect_existing: true
+validation:              # used by design-validate
+  spacing_scale: [0, 2, 4, 8, 12, 16, 20, 24, 32, 40]   # above the last value: multiples of 8
+  require_spacing_tokens: true                         # gap/padding/radius must be bound to Spacing/Radius tokens
 never_invent: [<fill>]   # [] = nothing permanent, decided per task
 work_types:              # project_types: which project types show this item in the menu
   - id: feature-update

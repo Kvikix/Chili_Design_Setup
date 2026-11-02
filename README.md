@@ -14,6 +14,7 @@ Claude plugin **chili-design** for Chili Labs designers working on existing apps
 | `design-qa` | via menu | Check finished screens against the task |
 | `wireframe` | menu → «Вайрфрейм в чате» | Low-fi wireframes in the chat; «перенеси в Figma» hands off to the design skill |
 | `pattern-research` | menu → Mobbin / «Исследование и направления» | Mobbin research: examples, patterns, directions |
+| `design-validate` | auto at the end of build · «проверь фрейм» | Technical check: spacing scale, layer names, tokens/text styles — report, then fix after confirmation |
 | `ui-craft` | menu → «Новый визуал», «ДС + улучшения», «Создание UI-основы» | Strong visual UI from chosen references; UI foundation for new products |
 
 Every design decision and QA finding ends with a short source: (NN/g), (WCAG 2.5.8), (закон Фиттса).

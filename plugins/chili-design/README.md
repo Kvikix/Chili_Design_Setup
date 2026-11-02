@@ -14,6 +14,7 @@ Claude plugin **chili-design** for Chili Labs designers working on existing prod
 | `design-qa` | via menu | Check finished screens against the task |
 | `wireframe` | menu → «Вайрфрейм в чате» | Low-fi wireframes in the chat; «перенеси в Figma» hands off to the design skill |
 | `pattern-research` | menu → Mobbin / «Исследование и направления» | Mobbin research: examples, patterns, directions |
+| `design-validate` | auto at the end of build · «проверь фрейм» | Spacing on the scale, named layers, tokens and text styles bound — report first, fixes after confirmation, only on Playground AI frames |
 | `ui-craft` | menu → «Новый визуал», «ДС + улучшения», «Создание UI-основы» | Strong visual UI from chosen references; UI foundation for new products |
 
 Every design decision and QA finding ends with a short source: (NN/g), (WCAG 2.5.8), (закон Фиттса).
@@ -62,6 +63,7 @@ plugins/chili-design/
   references/wcag-2.2.md               WCAG 2.2 AA checklist for designers
   references/nngroup.md                Nielsen Norman Group key guidance (summary)
   references/ui-taste.md               UI craft taste guide (built-in reference base)
+  references/chili-ds-template.md      Chili mobile DS template: tokens, type scale, spacing, effects, grids, component naming
 ```
 
 ## Changelog

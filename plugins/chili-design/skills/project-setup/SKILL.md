@@ -54,7 +54,7 @@ Record links in `project.docs` (config) and `source-map.md`.
 Copy the templates from `templates/` next to this SKILL.md into the project folder (`CLAUDE.md`, `SETUP_CHECKLIST.md`, `context/*.md`) — never overwrite existing files; update them in place. Then fill:
 - `context/project-config.md` — YAML in place (keys unchanged).
 - `context/project-context.md` — about the project (domain, description, docs), product, roles, JTBD (*derived* vs *confirmed*), flows with Figma references, constraints, open questions. Keep it compact: short bullets and tables, links instead of long text.
-- `context/design-system.md` — libraries, token/component naming, key components, constraints (greenfield: what exists so far).
+- `context/design-system.md` — libraries, token/component naming, key components, constraints (greenfield: what exists so far). Compare with the Chili DS template (`../../references/chili-ds-template.md`): fill «Mapping to Chili DS template» — what matches, what's missing; no DS → «baseline = Chili DS template».
 - `context/source-map.md` — verified links (Jira, Figma, Confluence/docs), access level, task format, source precedence.
 - `CLAUDE.md` — ≤80 lines: keep the «Role» block as is and replace `<domain>` with the project's domain (e.g. «education / LMS», «fintech»; unknown → «this product's domain»); then project specifics only — don't repeat what the skills already say.
 - `SETUP_CHECKLIST.md` — tick only what was actually verified.

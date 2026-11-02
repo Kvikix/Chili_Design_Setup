@@ -6,6 +6,8 @@ argument-hint: "[optional: Jira URL or short description]"
 
 # New task — intake menu (project-agnostic)
 
+Not a new task but «проверь фрейм» / «validate» with Figma links → skip the menu and run skill `design-validate`.
+
 Everything project-specific comes from **`context/project-config.md`**. This skill contains no project names, links or rules of its own.
 
 ## Step 0 — Load the project config

@@ -8,7 +8,7 @@ argument-hint: "[screen or goal] [ui=system|extend|free] [refs=...] [goal=direct
 
 Input: $ARGUMENTS (task context, `ui`, `refs`, platforms, project type).
 
-Always: UX principles (`../../references/ux-principles.md`), WCAG 2.2 AA (`../../references/wcag-2.2.md`), taste guide (`../../references/ui-taste.md`). Short sources in parentheses for notable decisions.
+Always: UX principles (`../../references/ux-principles.md`), WCAG 2.2 AA (`../../references/wcag-2.2.md`), taste guide (`../../references/ui-taste.md`), Chili DS template (`../../references/chili-ds-template.md`) — baseline structure and naming; the project DS always wins. Short sources in parentheses for notable decisions.
 
 Language in Figma: copy inside mockups in the project UI language (`language.ui`); page, section, frame and layer names, annotations and labels (`Variant A`, `Proposal`) always in English. Never write Russian in Figma unless it is a UI language of the project.
 
@@ -27,7 +27,7 @@ Language in Figma: copy inside mockups in the project UI language (`language.ui`
 ## 3. Goals
 - `direction` — return the direction (and, if asked, a small style tile in chat or on the output page).
 - `screen` — apply the direction to the screen(s) the workflow skill builds.
-- `foundation` (work type «Создание UI-основы», greenfield) — on the output page, in the task Section: colour palette with roles (light/dark), type scale, spacing/grid, radii/elevation, and 6–10 core components (button set, input, card, list item, tab bar/nav, chip, toast, empty state) with states. Use Figma variables/styles when tooling allows; **do not publish a library** — propose it to the designer.
+- `foundation` (work type «Создание UI-основы», greenfield) — follow the Chili DS template structure (3 token layers, naming, type scale, spacing, effects, grid) with the project's brand colours; on the output page, in the task Section: colour palette with roles (light/dark), type scale, spacing/grid, radii/elevation, and 6–10 core components (button set, input, card, list item, tab bar/nav, chip, toast, empty state) with states. Use Figma variables/styles when tooling allows; **do not publish a library** — propose it to the designer.
 
 ## 4. Self-check before reporting
-Hierarchy readable in 3 seconds · one primary action · aligned to grid · consistent radii/spacing · contrast in every theme (WCAG 1.4.3, 1.4.11) · real content · states covered · nothing that looks «AI-generic» (see taste guide).
+Hierarchy readable in 3 seconds · one primary action · aligned to grid · consistent radii/spacing · contrast in every theme (WCAG 1.4.3, 1.4.11) · real content · states covered · nothing that looks «AI-generic» (see taste guide). For `foundation`/`screen` built in Figma, finish with skill `design-validate` (report → fix on confirmation).
