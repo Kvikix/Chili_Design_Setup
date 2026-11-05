@@ -6,9 +6,11 @@ argument-hint: "[feature or Jira URL] [Figma source URL (optional — output goe
 
 # UI variations
 
+Writing: short, no filler — `../../references/writing.md` (applies to chat, plans, reports, annotations).
+
 Input: $ARGUMENTS
 
-UX quality: when designing, apply `../../references/ux-principles.md` (relative to this SKILL.md — read only the sections relevant to the change: states, forms, navigation, accessibility, content). Project design system and approved patterns take priority. If the project DS lacks a token/style/state, propose it in Chili DS template naming (`../../references/chili-ds-template.md`) as `Proposal`. Accessibility target: WCAG 2.2 AA (`../../references/wcag-2.2.md`). Use NN/g guidance (`../../references/nngroup.md`) for patterns. Back every notable design decision with a short source in parentheses — (NN/g), (WCAG …), (закон …) — as described in «How to argue decisions» — in the plan (analyze) and in the result report (build).
+UX quality: when designing, apply `../../references/ux-principles.md` (relative to this SKILL.md — read only the sections relevant to the change: states, forms, navigation, accessibility, content). Project design system and approved patterns take priority. If the project DS lacks a token/style/state, propose it in Chili DS template naming (`../../references/chili-ds-template.md`) as `Proposal`. Accessibility target: WCAG 2.2 AA (`../../references/wcag-2.2.md`). Use NN/g guidance (`../../references/nngroup.md`) for patterns. Back every notable design decision with a short source in parentheses — (NN/g), (WCAG …), (… law) — as described in «How to argue decisions» — in the plan (analyze) and in the result report (build).
 
 UI approach and references (from new-task): `ui=system` (default for existing projects) — only the project's design system; `ui=extend` — design system first, new components/tokens allowed and labelled `Proposal`; `ui=free` — new visual (default for greenfield). For `extend`/`free`, invoke skill `ui-craft` (goal `screen`) for the visual direction before drawing, using `refs` (designer's references, Mobbin results, taste guide). If a wireframe was approved in chat, use its structure spec as the layout source.
 

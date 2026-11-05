@@ -1,10 +1,12 @@
 ---
-name: ui-craft
-description: Strong visual UI craft — hierarchy, typography, colour, spacing, detail and states — driven by the chosen UI approach (strict design system, design system + improvements, or new visual) and reference sources (designer's own references, Mobbin, built-in taste). Use for «Создание UI-основы», when new-task passes ui=extend or ui=free, or when the designer asks to make a screen look stronger.
 argument-hint: "[screen or goal] [ui=system|extend|free] [refs=...] [goal=direction|screen|foundation]"
+description: Strong visual UI craft — hierarchy, typography, colour, spacing, detail and states — driven by the chosen UI approach (strict design system, design system + improvements, or new visual) and reference sources (designer's own references, Mobbin, built-in taste, UI/UX Pro Max). Use for the «UI foundation» work type, when new-task passes ui=extend or ui=free, or when the designer asks to make a screen look stronger.
+name: ui-craft
 ---
 
 # UI craft
+
+Writing: short, no filler — `../../references/writing.md` (applies to chat, plans, reports, annotations).
 
 Input: $ARGUMENTS (task context, `ui`, `refs`, platforms, project type).
 
@@ -13,9 +15,10 @@ Always: UX principles (`../../references/ux-principles.md`), WCAG 2.2 AA (`../..
 Language in Figma: copy inside mockups in the project UI language (`language.ui`); page, section, frame and layer names, annotations and labels (`Variant A`, `Proposal`) always in English. Never write Russian in Figma unless it is a UI language of the project.
 
 ## 1. Collect references (only the chosen sources)
-- **Мои референсы** — analyse each link/image: what exactly to take (layout, hierarchy, typography, colour, density, components, motion) and what not to take. If a link can't be opened, say so and ask for a screenshot.
+- **My references** — analyse each link/image: what exactly to take (layout, hierarchy, typography, colour, density, components, motion) and what not to take. If a link can't be opened, say so and ask for a screenshot.
 - **Mobbin** — use skill `pattern-research` (short mode) if not already done.
-- **Вкус ui-craft** — use `ui-taste.md` as the reference base.
+- **ui-craft taste** — use `ui-taste.md` as the reference base.
+- **UI/UX Pro Max** — invoke skill `ui-ux-pro-max:ui-ux-pro-max` (separate plugin; not installed → say so, continue with other sources): style, palette, font pairing, UX guidelines for the product type and platform. Its output is a suggestion: project DS wins for `system`/`extend`; for `foundation` keep the Chili DS template structure and fill it with these choices.
 - None → design system + UX principles only.
 
 ## 2. Visual direction (before drawing)
@@ -27,7 +30,7 @@ Language in Figma: copy inside mockups in the project UI language (`language.ui`
 ## 3. Goals
 - `direction` — return the direction (and, if asked, a small style tile in chat or on the output page).
 - `screen` — apply the direction to the screen(s) the workflow skill builds.
-- `foundation` (work type «Создание UI-основы», greenfield) — follow the Chili DS template structure (3 token layers, naming, type scale, spacing, effects, grid) with the project's brand colours; on the output page, in the task Section: colour palette with roles (light/dark), type scale, spacing/grid, radii/elevation, and 6–10 core components (button set, input, card, list item, tab bar/nav, chip, toast, empty state) with states. Use Figma variables/styles when tooling allows; **do not publish a library** — propose it to the designer.
+- `foundation` (work type «UI foundation», greenfield) — follow the Chili DS template structure (3 token layers, naming, type scale, spacing, effects, grid) with the project's brand colours; on the output page, in the task Section: colour palette with roles (light/dark), type scale, spacing/grid, radii/elevation, and 6–10 core components (button set, input, card, list item, tab bar/nav, chip, toast, empty state) with states. Use Figma variables/styles when tooling allows; **do not publish a library** — propose it to the designer.
 
 ## 4. Self-check before reporting
 Hierarchy readable in 3 seconds · one primary action · aligned to grid · consistent radii/spacing · contrast in every theme (WCAG 1.4.3, 1.4.11) · real content · states covered · nothing that looks «AI-generic» (see taste guide). For `foundation`/`screen` built in Figma, finish with skill `design-validate` (report → fix on confirmation).

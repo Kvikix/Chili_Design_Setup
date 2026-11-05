@@ -1,29 +1,30 @@
 # Chili design setup
 
-Claude plugin **chili-design** for Chili Labs designers working on existing products and new projects: project setup, a «новая задача» intake menu, and workflows for feature updates, flows, UI variations and design QA — with Jira and Figma.
+Claude plugin **chili-design** for Chili Labs designers working on existing products and new projects: project setup, a new-task intake menu, and workflows for feature updates, flows, UI variations and design QA — with Jira and Figma.
 
 ## What's inside
 
 | Skill | Say | What it does |
 |---|---|---|
-| `project-setup` | «настроить проект» | Existing product → finds it in Jira/Figma; new project → manual input. Asks for a Confluence link or a description. Creates `CLAUDE.md` + `context/` and saves `context/` to the Claude Project |
-| `new-task` | «новая задача» / «new task» | Menu: work type, product, platforms, mode → Jira → Figma → runs the right workflow |
+| `project-setup` | «setup project» | Existing product → finds it in Jira/Figma; new project → manual input. Asks for a Confluence link or a description. Creates `CLAUDE.md` + `context/` and saves `context/` to the Claude Project |
+| `new-task` | «new task» | Menu: work type, product, platforms, mode → Jira → Figma → runs the right workflow |
 | `feature-update` | via menu | Change an existing screen, component or part of a flow; 1 variant by default, more on request |
 | `flow-builder` | via menu | New or substantially reworked flow |
 | `ui-variations` | via menu | Concepts for a new feature; you choose how many (default 3, up to 5) |
 | `design-qa` | via menu | Check finished screens against the task |
-| `wireframe` | menu → «Вайрфрейм в чате» | Low-fi wireframes in the chat; «перенеси в Figma» hands off to the design skill |
-| `pattern-research` | menu → Mobbin / «Исследование и направления» | Mobbin research: examples, patterns, directions |
-| `design-validate` | auto at the end of build · «проверь фрейм» | Spacing on the scale, named layers, tokens and text styles bound — report first, fixes after confirmation, only on Playground AI frames |
-| `ui-craft` | menu → «Новый визуал», «ДС + улучшения», «Создание UI-основы» | Strong visual UI from chosen references; UI foundation for new products |
+| `wireframe` | menu → «Wireframe in chat» | Low-fi wireframes in the chat; «move to Figma» hands off to the design skill |
+| `pattern-research` | menu → Mobbin / «Research and directions» | Mobbin research: examples, patterns, directions |
+| `design-validate` | auto at the end of build · «validate» | Spacing on the scale, named layers, tokens and text styles bound — report first, fixes after confirmation, only on Playground AI frames |
+| `concise` | «make it shorter» | Rewrites any text short and without filler (Jira, Figma, Slack, client); all skills follow the same writing rules |
+| `ui-craft` | menu → «New visual», «DS + improvements», «UI foundation» | Strong visual UI from chosen references; UI foundation for new products |
 
-Every design decision and QA finding ends with a short source: (NN/g), (WCAG 2.5.8), (закон Фиттса).
+Every design decision and QA finding ends with a short source: (NN/g), (WCAG 2.5.8), (Fitts's law).
 
-Menu: task type → product → platforms → **how we work** (analysis / wireframe in chat / Figma) → **UI approach** (strict design system / + improvements / new visual) → **references** (mine / Mobbin / ui-craft taste, several allowed) → number of variants. Project type (existing or from scratch) is set once in «настроить проект» and changes the menu defaults.
+Menu: task type → product → platforms → **how we work** (analysis / wireframe in chat / Figma) → **UI approach** (strict design system / + improvements / new visual) → **references** (mine / Mobbin / ui-craft taste / UI/UX Pro Max, several allowed) → number of variants. Project type (existing or from scratch) is set once in project setup and changes the menu defaults.
 
 Rules for every workflow: new screens only on the **«Playground AI»** page (one section per task), existing screens are never edited unless you ask. Copy inside mockups is in the project UI language; page, section, frame names, annotations and labels in Figma are always English. The chat stays in Russian.
 
-Project context (`context/*.md`) is saved in the project folder and in the attached Claude Project, so new chats have it. Say «обнови контекст» when project facts change. No per-task logs.
+Project context (`context/*.md`) is saved in the project folder and in the attached Claude Project, so new chats have it. Ask to update the context when project facts change. No per-task logs.
 
 ## Install (once per designer)
 
@@ -42,8 +43,8 @@ Also connect the **Figma** and **Atlassian (Jira)** connectors.
 
 ## Start a new project
 1. Create an empty folder for the project (e.g. `Desktop/acme-app`) and open/connect it in Claude.
-2. Write **«настроить проект»**. Answer the questions, review the generated files.
-3. For every task write **«новая задача»**.
+2. Ask to **set up the project** («setup project»). Answer the questions, review the generated files.
+3. For every task ask for a **new task** («new task»).
 
 Project files (`CLAUDE.md`, `context/`) live only in the project folder — never put client data in this repository.
 
@@ -63,14 +64,20 @@ plugins/chili-design/
   references/wcag-2.2.md               WCAG 2.2 AA checklist for designers
   references/nngroup.md                Nielsen Norman Group key guidance (summary)
   references/ui-taste.md               UI craft taste guide (built-in reference base)
+  references/writing.md                Writing rules: short, no filler, length limits
   references/chili-ds-template.md      Chili mobile DS template: tokens, type scale, spacing, effects, grids, component naming
 ```
 
 ## Changelog
+**0.12.0**
+- `new-task`: question «Which connectors does this task need?» (Figma · Jira / Confluence · Mobbin). Unselected connectors are not used in the task; the summary reminds to switch them off in the chat to save context.
+- Config: `connectors.ask` / `connectors.default`; `project-setup` asks for the usual set.
+- All plugin files are English only; designer-facing questions and messages are said in `language.chat` (default Russian). Triggers work in any language.
+
 **0.8.0**
 - Figma language: UI copy in the project language; page/section/frame names, annotations and labels (`Variant A`, `Proposal`) always English (`language.design`).
 - Default output page renamed to «Playground AI».
-- `project-setup`: first question «существующий продукт или новый проект»; new project = manual input (name, platform, domain, Figma links, design system), no Jira/Figma searches.
+- `project-setup`: first question «existing product or new project»; new project = manual input (name, platform, domain, Figma links, design system), no Jira/Figma searches.
 - `project-setup`: asks for a Confluence link or a free description of the project.
-- Context files are saved to the attached Claude Project; `new-task` reads them from there if the folder has none; «обнови контекст» updates them.
+- Context files are saved to the attached Claude Project; `new-task` reads them from there if the folder has none; asking to update the context updates them.
 - Shorter `CLAUDE.md` template (project specifics only) with a «Role» block: Senior UX/UI Product Designer, UX first, domain filled in by `project-setup`.

@@ -4,8 +4,8 @@ Apply when designing (feature-update, flow-builder, ui-variations) and when revi
 **Priority:** task requirements → project design system and approved patterns → these principles. If a principle conflicts with the project's approved pattern, keep the pattern and mention the trade-off; don't silently diverge.
 
 ## How to argue decisions (required)
-- Every notable design decision, variant trade-off and QA finding ends with a short source in parentheses — nothing more: **(NN/g)**, **(WCAG 1.4.3)**, **(закон Фиттса)**, **(HIG)**, **(Material)**.
-- Examples: «Кнопка "Сохранить" внизу на всю ширину (закон Фиттса)» · «Нет empty state у списка (NN/g)» · «Контраст подписи 2.8:1 в тёмной теме (WCAG 1.4.3)».
+- Every notable design decision, variant trade-off and QA finding ends with a short source in parentheses — nothing more: **(NN/g)**, **(WCAG 1.4.3)**, **(Fitts's law)**, **(HIG)**, **(Material)**.
+- Examples: «Full-width "Save" button at the bottom (Fitts's law)» · «List has no empty state (NN/g)» · «Caption contrast 2.8:1 in dark theme (WCAG 1.4.3)». Write them in `language.chat`.
 - No article titles, no explanations of the source, max two sources per line.
 - Never invent a source; cite only what is covered in these files.
 
@@ -13,7 +13,7 @@ Apply when designing (feature-update, flow-builder, ui-variations) and when revi
 - One primary action per screen; secondary actions visually weaker. Destructive actions never styled as primary.
 - Most important information first (top, larger, higher contrast); scannable headings, short labels.
 - Group related content (proximity, cards, sections); consistent spacing from the design system's scale.
-- Progressive disclosure: show the essential, hide advanced options behind expand/«Подробнее».
+- Progressive disclosure: show the essential, hide advanced options behind expand/«More».
 
 ## 2. States — design every state the change touches
 Default · loading (skeleton for content, spinner only for short actions) · empty (explains why + next action) · error (what happened + how to fix + retry) · success/confirmation · disabled (and why) · offline/no permission · partial data / very long data · first-time vs returning user · subscriber vs non-subscriber if relevant.
@@ -21,7 +21,7 @@ Default · loading (skeleton for content, spinner only for short actions) · emp
 ## 3. Feedback and control (NN/g heuristics — details in `nngroup.md`)
 - Visible system status: immediate response to every tap (pressed state, progress).
 - Prevent errors before reporting them: constraints, sensible defaults, inline validation on blur, not on every keystroke.
-- Undo or confirmation for destructive / irreversible actions; confirmation dialogs name the action («Удалить тест?» → «Удалить»), not «OK».
+- Undo or confirmation for destructive / irreversible actions; confirmation dialogs name the action («Delete test?» → «Delete»), not «OK».
 - Recognition over recall: show options, recent items, current filters/period.
 - Consistency: same element = same behaviour across the app and between mob and web.
 
@@ -51,7 +51,7 @@ Default · loading (skeleton for content, spinner only for short actions) · emp
 - WCAG 2.2 additions to check every time: focus not hidden by sticky bars (2.4.11), drag actions have a tap alternative (2.5.7), target size (2.5.8), help in a consistent place (3.2.6), no re-entering the same data (3.3.7), login without memory tests — allow paste, biometrics (3.3.8).
 
 ## 8. Content and microcopy
-- Plain, specific, action-oriented: buttons say what happens («Сохранить изменения», not «OK»).
+- Plain, specific, action-oriented: buttons say what happens («Save changes», not «OK»).
 - Same term for the same thing everywhere; follow the project's terminology and UI language.
 - Leave ~30–40 % extra space for translations and long names; truncate with ellipsis + full text available.
 - Numbers, dates, currency in the project's locale format.
@@ -65,7 +65,7 @@ Default · loading (skeleton for content, spinner only for short actions) · emp
 - For each: user benefit, trade-off, risk, effort (new components? dev complexity?).
 - Reference patterns from real apps (Mobbin) only when asked or clearly useful; cite the source; never treat them as business truth.
 
-## 11. Laws of UX (cite as «закон Фиттса», «закон Хика» …)
+## 11. Laws of UX (cite as «Fitts's law», «Hick's law» … in `language.chat`)
 - **Fitts** — time to hit a target depends on its size and distance: big, close targets for frequent/primary actions.
 - **Hick** — more choices = slower decisions: reduce and group options, highlight the recommended one.
 - **Jakob** — users expect your app to work like the apps they already use: prefer familiar patterns.

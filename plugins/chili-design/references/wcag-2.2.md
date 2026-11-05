@@ -6,7 +6,7 @@ Only criteria a designer controls in Figma are listed. ★ = new in 2.2.
 ## Perceivable
 - **1.1.1 Non-text content (A)** — icons-only buttons, images and charts need a text alternative; annotate it for dev.
 - **1.3.1 Info and relationships (A)** — structure visible in the design (headings, lists, groups, table headers, form labels) must be real structure, not just styling.
-- **1.3.3 Sensory characteristics (A)** — instructions don't rely only on shape, position or colour («нажмите зелёную кнопку справа»).
+- **1.3.3 Sensory characteristics (A)** — instructions don't rely only on shape, position or colour («tap the green button on the right»).
 - **1.3.4 Orientation (AA)** — works in portrait and landscape unless essential.
 - **1.3.5 Identify input purpose (AA)** — personal-data fields have a defined purpose (name, email, phone) for autofill.
 - **1.4.1 Use of colour (A)** — colour is never the only way to convey status, marks, errors, selected state, links.
@@ -23,13 +23,13 @@ Only criteria a designer controls in Figma are listed. ★ = new in 2.2.
 - **2.3.1 Three flashes (A)** — no flashing more than 3 times per second (animations, Lottie).
 - **2.4.2 Page titled (A)** / **2.4.6 Headings and labels (AA)** — descriptive screen titles, headings and labels.
 - **2.4.3 Focus order (A)** — logical order matching the visual order.
-- **2.4.4 Link purpose (A)** — link/button text makes sense on its own («Подробнее о подписке», not just «Тут»).
+- **2.4.4 Link purpose (A)** — link/button text makes sense on its own («More about the subscription», not just «Here»).
 - **2.4.7 Focus visible (AA)** — clear focus indicator on every interactive element (web, external keyboards).
 - ★ **2.4.11 Focus not obscured (AA)** — focused element is not hidden by sticky headers, bottom bars, banners, cookie bars.
 - **2.5.1 Pointer gestures (A)** — multipoint/path gestures (pinch, swipe) have a single-tap alternative.
 - **2.5.2 Pointer cancellation (A)** — actions fire on release; user can cancel by moving away.
 - **2.5.3 Label in name (A)** — accessible name contains the visible label text.
-- ★ **2.5.7 Dragging movements (AA)** — anything done by dragging (reorder, sliders, swipe-to-delete) also works with single taps (e.g. «вверх/вниз» buttons, menu action).
+- ★ **2.5.7 Dragging movements (AA)** — anything done by dragging (reorder, sliders, swipe-to-delete) also works with single taps (e.g. «up/down» buttons, menu action).
 - ★ **2.5.8 Target size minimum (AA)** — targets ≥ 24×24 CSS px or enough spacing. Platform guidance is stricter: use **44×44 pt iOS / 48×48 dp Android** as the project default.
 
 ## Understandable
@@ -46,7 +46,7 @@ Only criteria a designer controls in Figma are listed. ★ = new in 2.2.
 
 ## Robust
 - **4.1.2 Name, role, value (A)** — custom components declare role and state (selected, expanded, disabled); annotate for dev.
-- **4.1.3 Status messages (AA)** — toasts, «сохранено», counters are announced to screen readers without moving focus.
+- **4.1.3 Status messages (AA)** — toasts, «saved», counters are announced to screen readers without moving focus.
 
 ## Not required at AA but worth applying when cheap (AAA)
 2.4.12 Focus not obscured (enhanced), ★ 2.4.13 Focus appearance, 2.5.5 Target size enhanced (44×44), 3.3.9 Accessible authentication (enhanced).

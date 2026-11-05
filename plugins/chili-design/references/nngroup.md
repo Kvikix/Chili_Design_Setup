@@ -19,7 +19,7 @@ Own-words summary of widely known NN/g research and guidelines (nngroup.com/arti
 - **Placeholders in Form Fields Are Harmful** — placeholders disappear, strain memory and look like filled values; use persistent labels and helper text.
 - **Error-Message Guidelines** — visible next to the problem, explicit and human-readable, polite, precise, constructive (how to fix), preserve the user's input.
 - **Inline validation** — validate on leaving the field, not on every keystroke; confirm success where useful.
-- **Confirmation Dialogs** — only for consequential, irreversible actions; name the action on the button («Удалить»), not «OK/Да»; overuse makes people click through — prefer undo where possible.
+- **Confirmation Dialogs** — only for consequential, irreversible actions; name the action on the button («Delete»), not «OK/Yes»; overuse makes people click through — prefer undo where possible.
 
 ## Feedback and states
 - **Skeleton Screens** — for full-page/content loads of ~2–10 s; spinners for short actions; progress bars for long ones.
