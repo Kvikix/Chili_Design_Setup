@@ -18,7 +18,7 @@ Claude plugin **chili-design** for Chili Labs designers working on existing prod
 | `concise` | «make it shorter» | Rewrites any text short and without filler (Jira, Figma, Slack, client); all skills follow the same writing rules |
 | `ui-craft` | menu → «New visual», «DS + improvements», «UI foundation» | Strong visual UI from chosen references; UI foundation for new products |
 | `menu` | «/menu», «what can you do» | All commands, connected skills and other skills available to you — one line each |
-| `skills` | «/skills», «connect a skill» | Connect skills from other plugins (UI/UX Pro Max, Mobbin, design…) to the project → `external_skills` |
+| `project-skills` | «/project-skills», «connect a skill» | Connect skills from other plugins (UI/UX Pro Max, Mobbin, design…) to the project → `external_skills` |
 
 Every design decision and QA finding ends with a short source: (NN/g), (WCAG 2.5.8), (Fitts's law).
 
@@ -65,12 +65,40 @@ plugins/chili-design/
   references/ux-principles.md          UX/UI best practices used by the design and QA skills
   references/wcag-2.2.md               WCAG 2.2 AA checklist for designers
   references/nngroup.md                Nielsen Norman Group key guidance (summary)
-  references/ui-taste.md               UI craft taste guide (built-in reference base)
+  references/taste/index.md            Taste library index: which file to read when
+  references/taste/core.md             UI craft taste guide (visual craft, anti «AI-generic»)
+  references/taste/patterns/*.md       UX flow patterns: forms, search-filter, onboarding, auth, permissions, subscription-iap, payment-checkout (iOS / Android / Flutter notes)
+  references/taste/platform/*.md       surfaces (sheet/modal/dialog rules), navigation, ios-native, android-native, flutter
+  references/taste/creative.md         creative exploration: levels, axes, techniques, guardrails
+  references/taste/chili/craft.md      opt-in: measured radii, spacing, type, components from Chili projects
+  references/taste/chili/ideas.md      opt-in: idea bank from Chili projects
+  references/taste/chili/projects/*.md   project cards: balcia, totherescue, rover, ganbei, twino
   references/writing.md                Writing rules: short, no filler, length limits
   references/chili-ds-template.md      Chili mobile DS template: tokens, type scale, spacing, effects, grids, component naming
 ```
 
 ## Changelog
+**0.17.1**
+- Skill `skills` renamed to `project-skills`: `/skills` is a built-in Claude command (lists all skills), so the bare name collided. Commands are documented in short form (`/menu`, `/project-skills`) with the always-working full form `/chili-design:<skill>`.
+
+**0.17.0**
+- Chili projects are now an **opt-in reference** («Chili projects» in new-task), not a default style; `house-style.md` removed.
+- New `chili/craft.md` (measured from Figma tokens/layers: spacing, radii, typography, colour roles, component specs + calibration ranges) and `chili/ideas.md` (idea bank: principle + remix). Project cards updated with real tokens.
+- New `taste/creative.md`: creativity levels safe / bold / wild, axes to vary, techniques, scorecard, guardrails, anti-generic check. ui-craft step 1b, ui-variations builds variants by axes and levels, new-task asks «How creative?».
+
+**0.16.0**
+- Taste library `chili/`: project cards (Balcia, ToTheRescue, Rover, Ganbei, Twino — from approved Figma screens) and `house-style.md` (recurring Chili solutions: visual DNA, navigation, filters, forms, commerce, overlays, states, copy, known inconsistencies).
+- `ui-craft` reads house style + the closest project cards; citations «(Chili: <project>)».
+
+**0.15.0**
+- Taste library `platform/`: `surfaces.md` (which surface to use; bottom sheet rules — one sheet at a time, next step continues inside it, otherwise full-screen modal/push; dialog, toast, menu rules; layering limits), `navigation.md`, `ios-native.md`, `android-native.md`, `flutter.md` (platform strategy, cheap vs expensive, adaptive widgets, handoff).
+- `feature-update`, `flow-builder`, `ui-variations` follow `surfaces.md` for every overlay; `design-qa` checks layering limits and platform behaviour.
+
+**0.14.0**
+- `ui-taste.md` → taste library `references/taste/`: `index.md`, `core.md` (former ui-taste), 7 pattern files (forms, search-filter, onboarding, auth, permissions, subscription-iap, payment-checkout) with flow, states, iOS/Android/Flutter notes, anti-patterns and QA checklist.
+- `ui-craft` reads the index and only the relevant files; `feature-update`, `flow-builder`, `ui-variations` use pattern files for covered flows; `design-qa` uses their QA checklists.
+- Placeholders for `platform/` and `chili/` (house style from Chili projects).
+
 **0.13.0**
 - New `menu`: list of chili-design commands, skills connected to the project and other skills available in the session.
 - New `skills`: connect skills from other plugins/libraries to the project; saved as `external_skills` (id, label, use_for, stage: references | build | review | manual).

@@ -48,13 +48,19 @@ Skip the whole block for `design-qa`, `motion`, `store-assets`.
    - `My references` — links or images, ask the designer to send them
    - `Mobbin` — how real apps do it (skill `pattern-research`). Hide if Mobbin was not selected in question 5; if asked in the same call, choosing it here turns the Mobbin connector on.
    - `ui-craft taste` — built-in base of principles and benchmarks (skill `ui-craft`)
+   - `Chili projects` — measured radii, spacing, typography, components and an idea bank from our past projects (opt-in; never applied as a style)
    - one option per available `external_skills` entry with `stage: references` (label — `use_for`). More than 4 options in total → merge them into `Connected libraries` and ask a follow-up with the list.
    - Legacy: `external_skills` is empty and `ui-ux-pro-max:ui-ux-pro-max` is available → keep the option `UI/UX Pro Max` — styles, palettes, font pairings and UX guidelines by product type.
    Nothing selected → work from the design system (if any) and UX principles only.
+7b. **«How creative?»** (header `Creativity`) — only if `ui` ≠ `system` or the work type is `ui-variations`:
+   - `Safe` — within the design system: layout, hierarchy, content, micro-interactions
+   - `Bold` — DS base + 1–2 new components or a signature moment, labelled `Proposal`
+   - `Wild` — new interaction or visual idea (for `ui-variations`: as one of the variants)
+   Recommended: `Safe` for `system`, `Bold` for `extend`, `Wild` for `free`. Pass as `creative=`.
 8. **«How many variants?»** (header `Variants`) — only for `feature-update` and `ui-variations`:
    - feature-update: `1 (Recommended)` · `2` · `3`; ui-variations: `2` · `3 (Recommended)` · `4`. Free text allowed; range 1–5, confirm if more.
 
-Ask Block 2 in one call when possible. Question 7 depends on 6: for existing projects ask 6 and 8 first, then 7 only if `ui` ≠ `system`; for greenfield ask 6, 7, 8 together.
+Ask Block 2 in one call when possible (max 4 questions per call). Questions 7 and 7b depend on 6: for existing projects ask 6 and 8 first, then 7 + 7b only if `ui` ≠ `system` (7b also for `ui-variations`); for greenfield ask 6, 7, 7b, 8 together.
 
 ### Connectors for this task
 Use only the selected connectors — never call tools of the others in this task, even if a link to them appears:
@@ -87,7 +93,8 @@ Source screens: <Figma link(s) | none>
 Connectors: <Figma · Jira/Confluence · Mobbin | chat only>
 Mode: analyze | wireframe | build
 UI: strictly DS | DS + improvements | new visual
-References: <mine / Mobbin / ui-craft taste / connected skills / none>
+References: <mine / Mobbin / ui-craft taste / Chili projects / connected skills / none>
+Creativity: safe | bold | wild
 Extra skills: <labels by stage | none>
 Variants: N
 Output: <chat for a wireframe | page «<output.page_name>» → section «<section name>»>
@@ -95,7 +102,7 @@ Open questions: <if any>
 ```
 
 Then run, in this order:
-1. **References** (only those selected): `Mobbin` → skill `pattern-research` (short mode: 5–8 examples + patterns); `My references` → analyse the provided links/images (what to take: layout, hierarchy, typography, colour, density, interaction); `ui-craft taste` → skill `ui-craft` (direction only); `UI/UX Pro Max` → skill `ui-ux-pro-max:ui-ux-pro-max` (separate plugin; if not installed, say so and continue without it) — take style, palette, font pairing and UX guidelines for the product type, then adapt to the project DS. Summarise the chosen direction in 3–5 lines before designing.
+1. **References** (only those selected): `Mobbin` → skill `pattern-research` (short mode: 5–8 examples + patterns); `My references` → analyse the provided links/images (what to take: layout, hierarchy, typography, colour, density, interaction); `ui-craft taste` → skill `ui-craft` (direction only); `Chili projects` → skill `ui-craft` with `refs=chili` (craft specs + idea bank, principles only); `UI/UX Pro Max` → skill `ui-ux-pro-max:ui-ux-pro-max` (separate plugin; if not installed, say so and continue without it) — take style, palette, font pairing and UX guidelines for the product type, then adapt to the project DS. Summarise the chosen direction in 3–5 lines before designing.
 2. **Mode**:
    - `analyze` → invoke the work type's skill with `mode=analyze`.
    - `wireframe` → invoke skill `wireframe` with the task context, `variants`, and the work type's skill as `handoff`. When the designer asks to move it to Figma, invoke the `handoff` skill with `mode=build` and the approved wireframe as the structure.

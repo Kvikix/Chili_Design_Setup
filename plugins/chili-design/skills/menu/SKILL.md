@@ -15,7 +15,7 @@ Read-only: never edits files or config, never calls Figma, Jira or Mobbin. One m
 - Plugin version from `../../.claude-plugin/plugin.json`.
 
 ## Step 1 — Collect available skills
-Same as `skills` Step 1: `ListSkills` if available, otherwise the skill list in your context. Never list a skill that is not there.
+Same as `project-skills` Step 1: `ListSkills` if available, otherwise the skill list in your context. Never list a skill that is not there.
 - chili-design: use the table below. A chili-design skill in the session but missing from the table → add it with a line from its description. In the table but not in the session → skip it.
 - `external_skills` entry not in the session → show with `⚠ not installed for you`.
 
@@ -28,7 +28,7 @@ Same as `skills` Step 1: `ListSkills` if available, otherwise the skill list in 
 Start
   /new-task — start any task: short menu → the right workflow
   /project-setup — set up or update the project context
-  /skills — connect skills from other libraries to this project
+  /project-skills — connect skills from other libraries to this project
   /menu — this list
 
 Chili workflows (usually started by /new-task)
@@ -46,7 +46,7 @@ Connected to this project
   ✓ <name> — <use_for> · <stage>
   ⚠ <name> — connected, not installed for you
 
-Also available to you (grouped as in /skills)
+Also available to you (grouped as in /project-skills)
   UI & visual: <name> — <use it for…>
   Research & references: …
   Review & QA: …
@@ -54,7 +54,8 @@ Also available to you (grouped as in /skills)
   Platform: …
   Other: N skills not about design — /menu all
 
-/skills — connect a skill to the project
+/project-skills — connect a skill to the project
+Command not found by the short name? Type /chili-design:<name>, e.g. /chili-design:new-task
 ```
 
 Rules: «use it for…» in plain designer terms (≤ 12 words), from the skill's description — never invent capabilities. Plugins with many skills → main skill + short sub-line. Nothing connected → omit that block.

@@ -61,5 +61,5 @@ plugins/chili-design/
   references/ux-principles.md          UX/UI best practices used by the design and QA skills
   references/wcag-2.2.md               WCAG 2.2 AA checklist for designers
   references/nngroup.md                Nielsen Norman Group key guidance (summary)
-  references/ui-taste.md               UI craft taste guide (built-in reference base)
+  references/taste/                    taste library: index, core (visual craft), patterns/ (UX flows), platform/ (surfaces, navigation, iOS, Android, Flutter), chili/ (opt-in: craft specs, idea bank, project cards), creative.md
 ```

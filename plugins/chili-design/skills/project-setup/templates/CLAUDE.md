@@ -16,7 +16,7 @@ Project type: `<existing | greenfield>` · Domain: `<fill>` (see `context/projec
 
 ## Rules
 - Start every task with a new-task request (`new-task`). It loads the config and routes to the right skill.
-- `/menu` — all commands and skills for this project; `/skills` — connect skills from other libraries.
+- `/menu` — all commands and skills for this project; `/project-skills` — connect skills from other libraries (full form: `/chili-design:menu`, `/chili-design:project-skills`).
 - Never invent business rules or anything in `never_invent`; mark them as open questions.
 - If a source or connector is inaccessible, say so; never pretend it was checked.
 

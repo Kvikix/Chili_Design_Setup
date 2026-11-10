@@ -3,7 +3,7 @@
 Source: Figma «Design System Mobile App (Tokens)» — https://www.figma.com/design/u2FkardRqBSEQqGpbDqMcL/Design-System-Mobile-App--Tokens-?node-id=4024-2249
 Use as **Chili's default structure**, not as the client's DS.
 
-**Priority:** the project's own design system (`context/design-system.md`, project libraries) > this template > `ui-taste.md`. Never replace or rename a client's tokens/styles with these. Use the template to: (1) build a new DS / UI foundation (greenfield), (2) name new tokens/styles consistently, (3) spot gaps in a client DS — always as `Proposal`.
+**Priority:** the project's own design system (`context/design-system.md`, project libraries) > this template > `taste/core.md`. Never replace or rename a client's tokens/styles with these. Use the template to: (1) build a new DS / UI foundation (greenfield), (2) name new tokens/styles consistently, (3) spot gaps in a client DS — always as `Proposal`.
 Read only the section you need. Exact values and Light/Dark aliases → open the Figma file (`search_design_system` / variables) rather than guessing.
 
 ## 1. Token architecture (3 layers, Figma variables)

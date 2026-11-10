@@ -4,10 +4,10 @@ Apply when designing (feature-update, flow-builder, ui-variations) and when revi
 **Priority:** task requirements → project design system and approved patterns → these principles. If a principle conflicts with the project's approved pattern, keep the pattern and mention the trade-off; don't silently diverge.
 
 ## How to argue decisions (required)
-- Every notable design decision, variant trade-off and QA finding ends with a short source in parentheses — nothing more: **(NN/g)**, **(WCAG 1.4.3)**, **(Fitts's law)**, **(HIG)**, **(Material)**.
+- Every notable design decision, variant trade-off and QA finding ends with a short source in parentheses — nothing more: **(NN/g)**, **(WCAG 1.4.3)**, **(Fitts's law)**, **(HIG)**, **(Material)**, **(Chili: Ganbei)** — a solution from a Chili project card in `taste/chili/projects/`.
 - Examples: «Full-width "Save" button at the bottom (Fitts's law)» · «List has no empty state (NN/g)» · «Caption contrast 2.8:1 in dark theme (WCAG 1.4.3)». Write them in `language.chat`.
 - No article titles, no explanations of the source, max two sources per line.
-- Never invent a source; cite only what is covered in these files.
+- Never invent a source; cite only what is covered in these files and the taste library (`taste/`).
 
 ## 1. Clarity and hierarchy
 - One primary action per screen; secondary actions visually weaker. Destructive actions never styled as primary.

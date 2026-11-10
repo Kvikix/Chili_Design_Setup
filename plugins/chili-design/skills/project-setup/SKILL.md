@@ -56,7 +56,7 @@ Record links in `project.docs` (config) and `source-map.md`.
 - «Which connectors do tasks usually need?» — multiSelect: Figma · Jira / Confluence · Mobbin → `connectors.default` (default: Figma + Jira / Confluence). Keep `connectors.ask: true` unless the designer wants the default used silently.
 
 ## Step 3b — Skills from other libraries
-Run skill `skills` Steps 1–3: show the skills available in this session; the designer picks which this project uses and when. «Later» → `external_skills: []`. The result is written in Step 4 together with the config.
+Run skill `project-skills` Steps 1–3: show the skills available in this session; the designer picks which this project uses and when. «Later» → `external_skills: []`. The result is written in Step 4 together with the config.
 
 ## Step 4 — Write files (project folder)
 Copy the templates from `templates/` next to this SKILL.md into the project folder (`CLAUDE.md`, `SETUP_CHECKLIST.md`, `context/*.md`) — never overwrite existing files; update them in place. Then fill:

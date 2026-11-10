@@ -28,7 +28,7 @@ themes: [light]
 connectors:
   ask: true                    # ask «Which connectors?» in every new task; false = use default silently
   default: [figma, atlassian]  # figma | atlassian | mobbin — preselected (Recommended) in the menu
-external_skills: []           # filled by /skills — skills from other plugins connected to this project
+external_skills: []           # filled by /project-skills — skills from other plugins connected to this project
 #  - id: ui-ux-pro-max:ui-ux-pro-max   # exact name from the skill list
 #    label: UI/UX Pro Max
 #    use_for: Palettes, styles and font pairings by product type
