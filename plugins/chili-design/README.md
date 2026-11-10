@@ -17,6 +17,8 @@ Claude plugin **chili-design** for Chili Labs designers working on existing prod
 | `design-validate` | auto at the end of build · «validate» | Spacing on the scale, named layers, tokens and text styles bound — report first, fixes after confirmation, only on Playground AI frames |
 | `concise` | «make it shorter» | Rewrites any text short and without filler (Jira, Figma, Slack, client); all skills follow the same writing rules |
 | `ui-craft` | menu → «New visual», «DS + improvements», «UI foundation» | Strong visual UI from chosen references; UI foundation for new products |
+| `menu` | «/menu», «what can you do» | All commands, connected skills and other skills available to you — one line each |
+| `skills` | «/skills», «connect a skill» | Connect skills from other plugins (UI/UX Pro Max, Mobbin, design…) to the project → `external_skills` |
 
 Every design decision and QA finding ends with a short source: (NN/g), (WCAG 2.5.8), (Fitts's law).
 
@@ -58,7 +60,7 @@ Project files (`CLAUDE.md`, `context/`) live only in the project folder — neve
 .claude-plugin/marketplace.json        catalog (one plugin)
 plugins/chili-design/
   .claude-plugin/plugin.json           name + version
-  skills/<skill>/SKILL.md              9 skills
+  skills/<skill>/SKILL.md              13 skills
   skills/project-setup/templates/      CLAUDE.md, SETUP_CHECKLIST.md, context/*.md for new projects
   references/ux-principles.md          UX/UI best practices used by the design and QA skills
   references/wcag-2.2.md               WCAG 2.2 AA checklist for designers
@@ -69,6 +71,14 @@ plugins/chili-design/
 ```
 
 ## Changelog
+**0.13.0**
+- New `menu`: list of chili-design commands, skills connected to the project and other skills available in the session.
+- New `skills`: connect skills from other plugins/libraries to the project; saved as `external_skills` (id, label, use_for, stage: references | build | review | manual).
+- `project-setup`: Step 3b runs `skills`. `new-task`: checks connected skills are installed for the designer (missing → skipped with a note), builds the references question from them, passes build/review skills to the workflows.
+
+**0.12.1**
+- Version bump so installed copies pick up the English-only files (0.12.0 installs could keep the older Russian text).
+
 **0.12.0**
 - `new-task`: question «Which connectors does this task need?» (Figma · Jira / Confluence · Mobbin). Unselected connectors are not used in the task; the summary reminds to switch them off in the chat to save context.
 - Config: `connectors.ask` / `connectors.default`; `project-setup` asks for the usual set.

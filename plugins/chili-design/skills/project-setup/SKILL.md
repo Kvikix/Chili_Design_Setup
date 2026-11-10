@@ -55,6 +55,9 @@ Record links in `project.docs` (config) and `source-map.md`.
 - `default_ui_approach`: keep `auto` unless the designer wants a fixed one.
 - «Which connectors do tasks usually need?» — multiSelect: Figma · Jira / Confluence · Mobbin → `connectors.default` (default: Figma + Jira / Confluence). Keep `connectors.ask: true` unless the designer wants the default used silently.
 
+## Step 3b — Skills from other libraries
+Run skill `skills` Steps 1–3: show the skills available in this session; the designer picks which this project uses and when. «Later» → `external_skills: []`. The result is written in Step 4 together with the config.
+
 ## Step 4 — Write files (project folder)
 Copy the templates from `templates/` next to this SKILL.md into the project folder (`CLAUDE.md`, `SETUP_CHECKLIST.md`, `context/*.md`) — never overwrite existing files; update them in place. Then fill:
 - `context/project-config.md` — YAML in place (keys unchanged).
@@ -68,7 +71,7 @@ Copy the templates from `templates/` next to this SKILL.md into the project fold
 If a Claude Project is attached (Projects tool available): `project_write` each of `context/project-config.md`, `context/project-context.md`, `context/design-system.md`, `context/source-map.md` at the same paths. Confirm only after the tool succeeds. No project attached → say the context is saved only in the folder and suggest attaching the chat to a Claude Project.
 No per-task logs — only the project description is kept.
 
-Then show a short summary: what was filled, where it is saved, open questions. Never claim connectors, Confluence or Figma were checked if they were not.
+Then show a short summary: what was filled, where it is saved, open questions, and the line «/menu — all commands and skills for this project». Never claim connectors, Confluence or Figma were checked if they were not.
 
 ## Step 6 — Smoke test
 Offer: «Run a new task on a real task in analyze mode?»

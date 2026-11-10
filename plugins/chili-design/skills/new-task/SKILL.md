@@ -17,6 +17,7 @@ Everything project-specific comes from **`context/project-config.md`**. This ski
 ## Step 0 — Load the project config
 - Project folder = the connected folder (or working directory) that contains `context/project-config.md`; if several do, ask which project. Read its YAML block and the project's `CLAUDE.md`. If the folder has no `context/` but a Claude Project is attached, read `context/project-config.md` from the project (`project_read`). Read only the config and `CLAUDE.md` here; other `context/*.md` are read later by the workflow skill, only the sections it needs. If the config is missing or still has `<fill>` values in `products`, stop and say: «The project is not set up yet — ask to set up the project» (skill `project-setup`). Do not guess.
 - `project_type` missing → treat as `existing`. `design_system_ready` missing → `true`. `work_types[].project_types` missing → item applies to every type. `connectors` missing → `ask: true`, `default: [figma, atlassian]`.
+- `external_skills` missing → `[]`. Check each entry against the skills available in this session; missing → skip it in this task and add one line to the summary: «Not installed for you: <label>».
 - Ask questions in `language.chat` (default Russian). If the designer's first message or `$ARGUMENTS` already answers something (Jira link, Figma link, work type, mode, number of variants), skip that question.
 - AskUserQuestion allows max 4 questions per call and 2–4 options per question (free text is always available). Skip any question whose answer is fixed by the config.
 
@@ -47,7 +48,8 @@ Skip the whole block for `design-qa`, `motion`, `store-assets`.
    - `My references` — links or images, ask the designer to send them
    - `Mobbin` — how real apps do it (skill `pattern-research`). Hide if Mobbin was not selected in question 5; if asked in the same call, choosing it here turns the Mobbin connector on.
    - `ui-craft taste` — built-in base of principles and benchmarks (skill `ui-craft`)
-   - `UI/UX Pro Max` — styles, palettes, font pairings and UX guidelines by product type (skill `ui-ux-pro-max`)
+   - one option per available `external_skills` entry with `stage: references` (label — `use_for`). More than 4 options in total → merge them into `Connected libraries` and ask a follow-up with the list.
+   - Legacy: `external_skills` is empty and `ui-ux-pro-max:ui-ux-pro-max` is available → keep the option `UI/UX Pro Max` — styles, palettes, font pairings and UX guidelines by product type.
    Nothing selected → work from the design system (if any) and UX principles only.
 8. **«How many variants?»** (header `Variants`) — only for `feature-update` and `ui-variations`:
    - feature-update: `1 (Recommended)` · `2` · `3`; ui-variations: `2` · `3 (Recommended)` · `4`. Free text allowed; range 1–5, confirm if more.
@@ -85,7 +87,8 @@ Source screens: <Figma link(s) | none>
 Connectors: <Figma · Jira/Confluence · Mobbin | chat only>
 Mode: analyze | wireframe | build
 UI: strictly DS | DS + improvements | new visual
-References: <mine / Mobbin / ui-craft taste / UI/UX Pro Max / none>
+References: <mine / Mobbin / ui-craft taste / connected skills / none>
+Extra skills: <labels by stage | none>
 Variants: N
 Output: <chat for a wireframe | page «<output.page_name>» → section «<section name>»>
 Open questions: <if any>
@@ -97,7 +100,8 @@ Then run, in this order:
    - `analyze` → invoke the work type's skill with `mode=analyze`.
    - `wireframe` → invoke skill `wireframe` with the task context, `variants`, and the work type's skill as `handoff`. When the designer asks to move it to Figma, invoke the `handoff` skill with `mode=build` and the approved wireframe as the structure.
    - `build` → invoke the work type's skill with `mode=build`.
-3. Always pass: `ui=<system|extend|free>`, `refs=<summary from step 1>`, `variants=N`, product, platforms, Figma sources. Work types with `skill: none` → work from `CLAUDE.md` and ask the extra questions in `asks`.
+3. Always pass: `ui=<system|extend|free>`, `refs=<summary from step 1>`, `variants=N`, product, platforms, Figma sources.
+4. Connected skills (`external_skills`, only those available): `stage: references` → invoke by `id` in step 1 if selected; `stage: build` → pass as `extra_skills` to the work-type skill, which consults them while designing; `stage: review` → after build and in design-qa offer «Run <label> check?»; `stage: manual` → only on request. They never override the project DS or output rules. Work types with `skill: none` → work from `CLAUDE.md` and ask the extra questions in `asks`.
 
 ## Output rules (all workflows)
 - New screens only on the page `output.page_name` (default «Playground AI») of the selected product's Figma file; create the page if missing and tell the designer. One Section per task, named by `output.section_naming` (English).

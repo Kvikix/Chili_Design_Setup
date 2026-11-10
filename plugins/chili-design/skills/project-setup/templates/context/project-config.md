@@ -28,6 +28,11 @@ themes: [light]
 connectors:
   ask: true                    # ask «Which connectors?» in every new task; false = use default silently
   default: [figma, atlassian]  # figma | atlassian | mobbin — preselected (Recommended) in the menu
+external_skills: []           # filled by /skills — skills from other plugins connected to this project
+#  - id: ui-ux-pro-max:ui-ux-pro-max   # exact name from the skill list
+#    label: UI/UX Pro Max
+#    use_for: Palettes, styles and font pairings by product type
+#    stage: references                  # references | build | review | manual
 default_mode: ask              # ask | analyze | wireframe | build
 default_ui_approach: auto      # auto (system for existing, free for greenfield) | system | extend | free
 output:
